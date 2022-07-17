@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> HTML Editor </title>
+    <link rel="stylesheet" href="marn_01.css">
+    <script>
+        function display_output() {
+            var input_html = document.getElementById("ta1").value;
+            var input_css = "<style>" + document.getElementById("ta2").value + "</style>";
+            var output = document.getElementById("main_output").contentWindow.document;
+            output.open();
+            output.write(input_html + input_css);
+            output.close();
+        };
+    </script>
+</head>
+<body>
+    <div class="sec">
+        <section class="html_editor">
+            <h3 class="h3a">HTML Editor (Tab)</h3>
+            <textarea class="ta1" id="ta1" rows="10" cols="58" oninput="display_output()">
+            </textarea>
+        </section>
+        <section class="css_editor">
+            <h3 class="h3a">CSS Editor (shift+Tab)</h3>
+            <textarea class="ta2" id="ta2" rows="10" cols="58" oninput="display_output()">
+            </textarea>
+        </section>
+    </div>
+    <h3>
+        <div class="h3b">Output: </div>
+    </h3>
+    <iframe id="main_output"></iframe>
+</body>
+
+</html>
